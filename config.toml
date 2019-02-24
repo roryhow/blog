@@ -1,0 +1,28 @@
+dibaseurl = "https://rory.how"
+theme = "cocoa-eh"
+builddrafts = true
+canonifyurls = true
+contentdir = "content"
+languageCode = "en-GB"
+layoutdir = "layouts"
+publishdir = "public"
+author = "Rory How"
+title = "Code, Learnings & Grumpiness"
+pluralizelisttitles = false
+
+[params]
+dateform = "2 Jan, 2006"
+dateformfull = "Mon Jan 2 2006 15:04:05 MST"
+description = "Rory How personal website"
+logofile = "img/me.jpeg"
+faviconfile = "img/favicon.ico"
+highlightjs = true
+progressively = true
+align_left = false
+lang = "en"
+github = "roryhow"
+email = "me@rory.how"
+linkedin = "roryhow"
+twitter = "roryhow"
+posts_navigation = true
+small_banner_logo = false
