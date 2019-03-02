@@ -7,4 +7,4 @@ phases:
     build:
         commands:
             - hugo
-            - aws s3 sync --acl public-read --sse --delete ./public/ s3://${BUCKET_NAME}
+            - aws s3 sync --acl public-read --sse --delete ./public/ s3://roryhow-blog
