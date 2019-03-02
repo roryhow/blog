@@ -1,6 +1,6 @@
-dibaseurl = "https://rory.how"
+dibaseurl = "https://www.rory.how"
 theme = "cocoa-eh"
-builddrafts = true
+builddrafts = false
 canonifyurls = true
 contentdir = "content"
 languageCode = "en-GB"
@@ -9,6 +9,7 @@ publishdir = "public"
 author = "Rory How"
 title = "Code, Learnings & Grumpiness"
 pluralizelisttitles = false
+enableRobotsTXT = true
 
 [params]
 dateform = "2 Jan, 2006"
