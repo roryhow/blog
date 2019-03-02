@@ -7,6 +7,4 @@ phases:
     build:
         commands:
             - hugo
-            - echo "S3 Upload Beginning"
-            - aws s3 sync public/ s3://${BUCKET_NAME}/ --region ${AWS_DEFAULT_REGION} --delete --acl public-read
-            - echo "S3 Upload Complete"
+            - aws s3 sync --acl public-read --sse --delete ./public/ s3://${BUCKET_NAME}
