@@ -9,4 +9,6 @@ phases:
       - hugo
   post_build:
     commands:
+      - ls public
+      - echo "attempting to sync to s3..."
       - aws s3 sync --acl public-read --sse --delete ./public/ s3://roryhow-blog
