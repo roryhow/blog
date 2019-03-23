@@ -131,11 +131,7 @@ div.main {
 padding-top: 0;
 }
 div.main .content {
-  {{ if .Site.Params.enlarged }}
-  font-size: 17px;
-  {{ else }}
   font-size: 16px;
-  {{ end }}
 }
 div.main .container .content .post-item {
 display: flex;

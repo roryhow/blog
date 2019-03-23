@@ -1,6 +1,6 @@
-+++
-title = "Home"
-+++
+---
+title: "Home"
+---
 
 ## Hi there! My name is Rory.
 

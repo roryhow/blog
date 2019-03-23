@@ -43,7 +43,7 @@ module "build" {
   badge_enabled = true
   cache_bucket_suffix_enabled = "false"
   cache_enabled = "false"
-  source_location = "https://github.com/roryhow/blog"
+  source_location = "${var.gh_repo}"
 }
 
 resource "aws_codebuild_webhook" "blog_hook" {

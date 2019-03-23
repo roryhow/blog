@@ -27,6 +27,10 @@ linkedin = "roryhow"
 twitter = "roryhow"
 posts_navigation = true
 small_banner_logo = false
+latestpostcount = 5
+share = true
+disablefancyfonts = true
+enlarged = true
 
 
 [blackfriday]
