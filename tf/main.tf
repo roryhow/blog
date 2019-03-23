@@ -44,6 +44,20 @@ module "build" {
   cache_bucket_suffix_enabled = "false"
   cache_enabled = "false"
   source_location = "${var.gh_repo}"
+  buildspec = <<EOF
+version: 0.2
+phases:
+  install:
+    commands:
+      - wget https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.deb
+      - dpkg -i hugo_0.54.0_Linux-64bit.deb
+  build:
+    commands:
+      - hugo
+  post_build:
+    commands:
+      - aws s3 sync --acl public-read --sse --delete ./public/ s3://${var.bucket}
+EOF
 }
 
 resource "aws_codebuild_webhook" "blog_hook" {

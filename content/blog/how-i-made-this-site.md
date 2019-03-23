@@ -4,10 +4,10 @@ date: 2019-03-23T20:21:30+02:00
 tags: [ "aws", "terraform", "s3", "codebuild", "cloudfront"]
 ---
 
-# How we got here
+# How We Got Here
 I come from a background of trying to shoehorn functional programming into everything that I do. So naturally, the previous iteration of this site was a vastly overcomplex clojure(script) monorepo that served a client side rendered [re-frame](https://github.com/Day8/re-frame) application. You can actually find the codebase [here, if you're interested](https://github.com/roryhow/arg-homepage).
 
-Don't get me wrong, I love re-frame, and the Clojure ecosystem, but it meant I ended up creating a site that became far too irritating to turn into a proper blog. So, I made the decision to retire that site, and start fresh.
+Don't get me wrong, I love re-frame and the Clojure ecosystem, but it meant I ended up creating a site that became far too irritating to turn into a proper blog. So, I made the decision to retire that site, and start fresh.
 
 This leads me into what I wanted to learn from creating a new site.
 
