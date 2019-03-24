@@ -14,7 +14,7 @@ This leads me into what I wanted to learn from creating a new site.
 # Requirements
 - Use AWS. I come from an Azure & Heroku background, so I felt it was about time to bring my head out from the sand and acknowledge AWS as a popular PaaS.
 - Manage as much of the infrastructure as possible using IaC (I chose [Terraform](https://terraform.io) for this, but I'm sure there are alternatives that would be just as fine).
-  - In addition to this, make it as easy as possible to spin off a new variable by changing a single environment variable (i.e `var.env`)
+  - In addition to this, make it as easy as possible to spin off an entirely new environment by changing a single environment variable (i.e `var.env`)
 - Avoid React. I usually do some level of React development on a daily basis, so I don't really want to bring that into my spare time. I decided to go with Hugo to solve this, but I won't go into the details of using Hugo in this post.
 - Keep everything as cheap as possible, ideally in the free-tier of AWS.
 

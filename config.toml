@@ -18,7 +18,7 @@ blog = "blog/:slug/"
 [params]
 dateform = "2 Jan, 2006"
 dateformfull = "Mon Jan 2 2006 15:04:05 MST"
-description = "Rory How personal website"
+description = "Programming-based ramblings and code snippets, with (hopefully) some semi-decent insights sprinkled inbetween"
 logofile = "img/me.jpeg"
 faviconfile = "img/favicon.ico"
 highlightjs = true
