@@ -35,7 +35,7 @@ resource "aws_iam_role" "build_role" {
 
 data "aws_iam_policy_document" "role" {
   statement {
-    sid = ""
+    sid = "WriteToS3ForCodeBuildService"
 
     actions = [
       "sts:AssumeRole",
@@ -51,23 +51,17 @@ data "aws_iam_policy_document" "role" {
 }
 
 resource "aws_iam_policy" "build_policy" {
-  name   = "roryhow-blog-codebuild-policy-${var.env}"
-  path   = "/service-role/"
-  policy = "${data.aws_iam_policy_document.permissions.json}"
+  name        = "roryhow-blog-codebuild-policy-${var.env}"
+  description = "A policy to manage Hugo builds and syncing with S3 buckets"
+  path        = "/service-role/"
+  policy      = "${data.aws_iam_policy_document.permissions.json}"
 }
 
 data "aws_iam_policy_document" "permissions" {
   statement {
-    sid = ""
+    sid = "WriteToS3ForCodeBuildService"
 
     actions = [
-      "ecr:BatchCheckLayerAvailability",
-      "ecr:CompleteLayerUpload",
-      "ecr:GetAuthorizationToken",
-      "ecr:InitiateLayerUpload",
-      "ecr:PutImage",
-      "ecr:UploadLayerPart",
-      "ecs:RunTask",
       "iam:PassRole",
       "logs:CreateLogGroup",
       "logs:CreateLogStream",
@@ -80,7 +74,6 @@ data "aws_iam_policy_document" "permissions" {
 
     resources = [
       "*",
-      "arn:aws:s3:::${var.bucket}/*",
     ]
   }
 }

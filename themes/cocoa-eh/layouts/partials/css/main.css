@@ -285,6 +285,8 @@ div.main .content .title-container {
   justify-content: space-between;
 }
 div.main .content .posts {
+  margin-top: 2em;
+    
   {{ $nbPosts := len (where .Data.Pages "Params.best" true)  }}
   {{ if gt $nbPosts 0 }}
   margin-bottom: 4em;
@@ -541,6 +543,10 @@ div.main .content .markdown p {
   {{end}}
   margin-top: 0;
   margin-bottom: 1em;
+}
+div.main .content .markdown ul li ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 div.main .content .markdown ul,
 div.main .content .markdown ol,
