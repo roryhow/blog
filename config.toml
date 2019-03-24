@@ -10,6 +10,7 @@ author = "Rory How"
 title = "Code, Learnings & Grumpiness"
 pluralizelisttitles = false
 enableRobotsTXT = true
+relativeURLs = true
 
 [permalinks]
 blog = "blog/:slug/"
