@@ -1,20 +1,22 @@
+data "aws_iam_policy_document" "bucket_policy" {
+  statement {
+    sid = "PublicReadForGetBucketObjects"
+    actions = [
+      "s3:GetObject"
+    ]
+    effect = "Allow"
+    resources = [
+      "arn:aws:s3:::${var.bucket}/*",
+    ]
+  }
+}
+
 # Create the bucket
 resource "aws_s3_bucket" "blog_bucket"  {
   bucket = "${var.bucket}"
   region = "${var.region}"
   acl    = "public-read"
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [{
-    "Sid": "PublicReadForGetBucketObjects",
-    "Effect": "Allow",
-    "Principal": "*",
-    "Action": "s3:GetObject",
-    "Resource": "arn:aws:s3:::${var.bucket}/*"
-  }]
-}
-EOF
+  policy = "${data.aws_iam_policy_document.bucket_policy.json}"
   website {
     index_document = "index.html"
     error_document = "404.html"
@@ -26,42 +28,109 @@ EOF
   }
 }
 
-# create the codebuild setup
-module "build" {
-  source = "git::https://github.com/roryhow/terraform-aws-codebuild.git?ref=master"
-  namespace = "roryhow-blog"
-  name = "ci"
-  stage = "${var.env}"
+resource "aws_iam_role" "build_role" {
+  name               = "roryhow-blog-codebuild-role-${var.env}"
+  assume_role_policy = "${data.aws_iam_policy_document.role.json}"
+}
 
-  # https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
-  build_image = "aws/codebuild/ubuntu-base:14.04"
+data "aws_iam_policy_document" "role" {
+  statement {
+    sid = ""
 
-  artifact_type = "NO_ARTIFACTS"
-  aws_region = "eu-central-1"
-  source_type = "GITHUB"
-  github_token = "${var.gh_token}"
+    actions = [
+      "sts:AssumeRole",
+    ]
+
+    principals {
+      type        = "Service"
+      identifiers = ["codebuild.amazonaws.com"]
+    }
+
+    effect = "Allow"
+  }
+}
+
+resource "aws_iam_policy" "build_policy" {
+  name   = "roryhow-blog-codebuild-policy-${var.env}"
+  path   = "/service-role/"
+  policy = "${data.aws_iam_policy_document.permissions.json}"
+}
+
+data "aws_iam_policy_document" "permissions" {
+  statement {
+    sid = ""
+
+    actions = [
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:CompleteLayerUpload",
+      "ecr:GetAuthorizationToken",
+      "ecr:InitiateLayerUpload",
+      "ecr:PutImage",
+      "ecr:UploadLayerPart",
+      "ecs:RunTask",
+      "iam:PassRole",
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+      "ssm:GetParameters",
+      "s3:*"
+    ]
+
+    effect = "Allow"
+
+    resources = [
+      "*",
+      "arn:aws:s3:::${var.bucket}/*",
+    ]
+  }
+}
+
+resource "aws_iam_role_policy_attachment" "default" {
+  policy_arn = "${aws_iam_policy.build_policy.arn}"
+  role       = "${aws_iam_role.build_role.id}"
+}
+
+resource "aws_codebuild_project" "build" {
+  name          = "roryhow-blog-${var.env}"
+  service_role  = "${aws_iam_role.build_role.arn}"
   badge_enabled = true
-  cache_bucket_suffix_enabled = "false"
-  cache_enabled = "false"
-  source_location = "${var.gh_repo}"
-  buildspec = <<EOF
-version: 0.2
-phases:
-  install:
-    commands:
-      - wget https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.deb
-      - dpkg -i hugo_0.54.0_Linux-64bit.deb
-  build:
-    commands:
-      - hugo
-  post_build:
-    commands:
-      - aws s3 sync --acl public-read --sse --delete ./public/ s3://${var.bucket}
-EOF
+  build_timeout = "60"
+
+  artifacts {
+    type = "NO_ARTIFACTS"
+  }
+
+  environment {
+    compute_type    = "BUILD_GENERAL1_SMALL"
+    image           = "aws/codebuild/ubuntu-base:14.04"
+    type            = "LINUX_CONTAINER"
+    privileged_mode = false
+
+    environment_variable = [
+      {
+        "name"  = "STAGE"
+        "value" = "${var.env}"
+      },
+      {
+        "name"  = "GITHUB_TOKEN"
+        "value" = "${var.gh_token}"
+      },
+      {
+        "name"  = "BUCKET_NAME"
+        "value" = "${var.bucket}"
+      }
+    ]
+  }
+
+  source {
+    type                = "GITHUB"
+    location            = "${var.gh_repo}"
+    report_build_status = true
+  }
 }
 
 resource "aws_codebuild_webhook" "blog_hook" {
-  project_name = "${module.build.project_name}"
+  project_name = "${aws_codebuild_project.build.name}"
   branch_filter = "${var.branch_filter}"
 }
 
