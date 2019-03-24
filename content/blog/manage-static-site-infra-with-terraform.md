@@ -267,5 +267,5 @@ So... how can I do this better?
 
 And there you have it! A completely overkill infrastructure for a very simple static site, managed (almost) entirely via Terraform, and it all stays within the free tier of AWS (as long as the CDN isn't too busy 😉) You can find the [full source code of this site, here](https://github.com/roryhow/blog). 
 
-If you have any tips or suggestions (I'm still pretty new to Terraform and AWS as a whole), please feel free to get in contact with my on [my twitter](https://twitter.com/roryhow). Thanks for reading!
+If you have any tips or suggestions (I'm still pretty new to Terraform and AWS as a whole), please feel free to get in contact with me on [my twitter](https://twitter.com/roryhow). Thanks for reading!
 
