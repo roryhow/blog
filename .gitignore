@@ -2,3 +2,4 @@ public/
 tf/variables.tf
 tf/.terraform/
 tf/*.tfstate*
+**/.DS_STORE

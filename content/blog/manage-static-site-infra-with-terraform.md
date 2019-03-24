@@ -1,5 +1,5 @@
 ---
-title: "Deploying a Wicked-Fast Static Site with Terraform, s3, Codebuild & Cloudfront"
+title: "Deploying a Wicked-Fast Static Site with Terraform, S3, Codebuild & Cloudfront"
 date: 2019-03-24
 tags: [ "aws", "terraform", "s3", "codebuild", "cloudfront"]
 ---

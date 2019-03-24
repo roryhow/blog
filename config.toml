@@ -1,4 +1,4 @@
-dibaseurl = "https://www.rory.how"
+baseurl = "https://www.rory.how/"
 theme = "cocoa-eh"
 builddrafts = false
 canonifyurls = true
@@ -10,6 +10,9 @@ author = "Rory How"
 title = "Code, Learnings & Grumpiness"
 pluralizelisttitles = false
 enableRobotsTXT = true
+
+[permalinks]
+blog = "blog/:slug/"
 
 [params]
 dateform = "2 Jan, 2006"
