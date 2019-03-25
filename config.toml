@@ -35,6 +35,7 @@ latestpostcount = 5
 share = true
 disablefancyfonts = true
 enlarged = true
+social_banner = true
 
 [blackfriday]
 noreferrerLinks = true

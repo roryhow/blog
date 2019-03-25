@@ -2,6 +2,7 @@
 title: "Deploying a Wicked-Fast Static Site with Terraform, S3, Codebuild & Cloudfront"
 date: 2019-03-24
 tags: [ "aws", "terraform", "s3", "codebuild", "cloudfront"]
+meta_img: /img/highrise-construction-glass-building-crane.jpg
 ---
 ![Highrise Scaffolding](/img/highrise-construction-glass-building-crane.jpg)
 
