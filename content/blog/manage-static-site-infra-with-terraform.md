@@ -2,9 +2,9 @@
 title: "Deploying a Wicked-Fast Static Site with Terraform, S3, Codebuild & Cloudfront"
 date: 2019-03-24
 tags: [ "aws", "terraform", "s3", "codebuild", "cloudfront"]
-meta_img: /img/highrise-construction-glass-building-crane.jpg
+meta_img: /img/urban-china-construction.jpg
 ---
-![Highrise Scaffolding](/img/highrise-construction-glass-building-crane.jpg)
+![Highrise Scaffolding](/img/urban-china-construction.jpg)
 
 # How We Got Here
 I come from a background of trying to shoehorn functional programming into everything that I do. So naturally, the previous iteration of this site was a vastly overcomplex Clojure(Script) monorepo that served a client side rendered [re-frame](https://github.com/Day8/re-frame) application. You can actually find the codebase [here, if you're interested](https://github.com/roryhow/arg-homepage).
