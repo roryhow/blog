@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'Nexa Bold';
-  src: url('{{ .Site.BaseURL }}fonts/Nexa Bold.otf');
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -163,7 +158,7 @@ div.header .container .logo {
 div.header .name {
   padding-top: 20px;
   font-size: 28px;
-  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   {{ if isset .Site.Params "titlestyle" }}
       {{ if in "capitalize uppercase lowercase none full-width" .Site.Params.titlestyle }}
@@ -286,7 +281,6 @@ div.main .content .title-container {
 }
 div.main .content .posts {
   margin-top: 2em;
-    
   {{ $nbPosts := len (where .Data.Pages "Params.best" true)  }}
   {{ if gt $nbPosts 0 }}
   margin-bottom: 4em;
@@ -726,29 +720,3 @@ kbd {
   line-height: 1.4;
   white-space: nowrap;
 }
-
-/* Fonts */
-
-{{ if not .Site.Params.disablefancyfonts  }}
-.wf-raleway-n4-active body, 
-.wf-raleway-n4-active div.header nav ul a,
-.wf-raleway-n7-active div.main .content .page-heading,
-.wf-raleway-n2-active div.main .container.f04 .content .num,
-.wf-raleway-n7-active div.main .content .markdown h1,
-.wf-raleway-n7-active div.main .content .markdown h2,
-.wf-raleway-n7-active div.main .content .markdown h3,
-.wf-raleway-n7-active div.main .content .markdown h4,
-.wf-raleway-n7-active div.main .content .markdown h5,
-.wf-raleway-n7-active div.main .content .markdown h6 {
-      font-family: 'Raleway';
-}
-
-.wf-merriweather-n3-active div.main .content .markdown {
-      font-family: 'Merriweather';
-}
-
-.wf-ubuntu-mono-n4-active div.main .content .markdown code,
-.wf-ubuntu-mono-n4-active div.main .content .markdown pre {
-      font-family: 'Ubuntu Mono';
-}
-{{ end  }}
