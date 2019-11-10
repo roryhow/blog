@@ -41,11 +41,6 @@ social_banner = true
 noreferrerLinks = true
 
 [params.colors]
-identifier = "#527fc1f"
-identifier_dark = "#1a3152"
-trivial = "#6a7a8b"
-foreground = "#181d2a"
-background = "#f9f9f9"
 background_dark = "#282a36"
 code = "#f8f8f2"
 type = "#ff79c6"
