@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "bucket_policy" {
 }
 
 # Create the bucket
-resource "aws_s3_bucket" "blog_bucket"  {
+resource "aws_s3_bucket" "blog_bucket" {
   bucket = "${var.bucket}"
   region = "${var.region}"
   acl    = "public-read"
@@ -99,20 +99,18 @@ resource "aws_codebuild_project" "build" {
     type            = "LINUX_CONTAINER"
     privileged_mode = false
 
-    environment_variable = [
-      {
-        "name"  = "STAGE"
-        "value" = "${var.env}"
-      },
-      {
-        "name"  = "GITHUB_TOKEN"
-        "value" = "${var.gh_token}"
-      },
-      {
-        "name"  = "BUCKET_NAME"
-        "value" = "${var.bucket}"
-      }
-    ]
+    environment_variable {
+      name  = "STAGE"
+      value = "${var.env}"
+    }    
+    environment_variable {
+      name  = "GITHUB_TOKEN"
+      value = "${var.gh_token}"
+    }
+    environment_variable {
+      name  = "BUCKET_NAME"
+      value = "${var.bucket}"
+    }
   }
 
   source {
@@ -123,7 +121,7 @@ resource "aws_codebuild_project" "build" {
 }
 
 resource "aws_codebuild_webhook" "blog_hook" {
-  project_name = "${aws_codebuild_project.build.name}"
+  project_name  = "${aws_codebuild_project.build.name}"
   branch_filter = "${var.branch_filter}"
 }
 
@@ -181,8 +179,8 @@ resource "aws_cloudfront_distribution" "blog_distribution" {
 
   viewer_certificate {
     # sorry this will need to be static for now
-    acm_certificate_arn = "${var.site_cert_arn}"
-    ssl_support_method = "sni-only"
+    acm_certificate_arn      = "${var.site_cert_arn}"
+    ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.1_2016"
   }
 }
