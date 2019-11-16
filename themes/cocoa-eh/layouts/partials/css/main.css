@@ -61,17 +61,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   width: 100%;
   min-height: 100%;
   font-weight: 400;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   color: #111111;
   line-height: 1.6;
-  text-rendering: optimizeLegibility !important;
-}
-.icon {
-  text-rendering: geometricPrecision !important;
 }
 section {
   display: flex;
@@ -110,7 +105,6 @@ div.header .name {
   font-weight: 700;
   margin-bottom: 12px;
   letter-spacing: -0.005rem;
-  font-smoothing: antialiased;
   color: #333333;
 }
 div.header nav {
@@ -138,6 +132,8 @@ div.header nav ul a {
   text-transform: uppercase;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
 }
+
+div.header .name:hover,
 div.header nav ul a:hover {
   color: #111111;
 }
@@ -194,7 +190,6 @@ div.main .content .page-heading {
   font-weight: 700;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
-  font-smoothing: antialiased;
   color: #333333;
   margin-bottom: 16px;
 }
@@ -306,6 +301,7 @@ a {
 }
 a:hover {
   color: #2a6496;
+  text-decoration: underline;  
 }
 img {
   max-width: 100%;
@@ -327,12 +323,9 @@ div.main .content .markdown h4,
 div.main .content .markdown h5,
 div.main .content .markdown h6 {
   font-size: 22px;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
   font-weight: 700;
-  font-smoothing: antialiased;
   color: #333333;
-  text-transform: none;
   margin-top: 1.75rem;
 }
 div.main .content .markdown h1 {
@@ -363,7 +356,6 @@ div.main .content .markdown pre {
 div.main .content .markdown code {
   /* enclosed by single backtick (`) */
   padding: .15em .5em;
-  border-radius: 2px;
   font-size: 0.9rem;
 }
 div.main .content .markdown pre {
@@ -389,11 +381,7 @@ div.main .content .markdown a code:hover {
   text-decoration: underline;
 }
 div.main .content .markdown p {
-  {{if .Site.Params.align_left}}
   text-align: left;
-  {{else}}
-  text-align: justify;
-  {{end}}
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -402,17 +390,11 @@ div.main .content .markdown ul li ul {
   margin-bottom: 0.25rem;
 }
 div.main .content .markdown ul,
-div.main .content .markdown ol,
-div.main .content .markdown dl {
+div.main .content .markdown ol {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-div.main .content .markdown dt {
-  font-weight: bold;
-}
-div.main .content .markdown dd {
-  margin-bottom: .5rem;
-}
+
 div.main .content .markdown ul {
   list-style-type: disc;
   list-style-position: outside;
@@ -517,31 +499,4 @@ div.main .content .navigation a {
   text-align: center;
   font-style: italic;
   color: #313537;
-}
-div.main .content .share, div.main .content .share div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-div.main .content .share {
-  padding: 1em 0;
-}
-div.main .content .share a {
-  margin: 0 6px;
-}
-kbd {
-  padding: 0.1em 0.6em;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #fff;
-  color: #333;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
-  text-shadow: 0 1px 0 #fff;
-  line-height: 1.4;
-  white-space: nowrap;
 }
