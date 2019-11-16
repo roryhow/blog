@@ -199,10 +199,6 @@ div.main .content .front-matter .page-heading {
 div.main .content .front-matter .meta {
   font-size: 14px;
   color: #666666;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
   display: flex;
   margin-bottom: 32px;
 }
@@ -301,7 +297,6 @@ a {
 }
 a:hover {
   color: #2a6496;
-  text-decoration: underline;  
 }
 img {
   max-width: 100%;
