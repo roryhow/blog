@@ -87,11 +87,11 @@ div.column {
 div.header .container {
   align-items: center;
   justify-content: center;
+  
 }
 div.header .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 div.header .container .logo {
   border-radius: 50%;
@@ -136,6 +136,11 @@ div.header nav ul a {
 div.header .name:hover,
 div.header nav ul a:hover {
   color: #111111;
+}
+
+div.footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 div.footer .container {
   align-items: center;
@@ -282,9 +287,7 @@ div.header {
 div.header-home {
   padding-top: 36px;
 }
-div.main {
-  padding-top: 32px;
-}
+
 div.main .container .content .post-item .meta {
     display: block;
 }
