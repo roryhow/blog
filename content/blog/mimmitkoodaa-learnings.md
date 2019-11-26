@@ -20,7 +20,7 @@ We started the day with the assumption that our participants knew absolutely not
 
 If we were to give a pop quiz at the end of the workshop on the days content, I'm sure many of the participants would score very little. This is totally fine, and we actually aim for this! There is no expectation for the knowledge of HTML elements and CSS properties to be immediately carved into your long-term memory at the first time of asking. The most important aspect of this is ensuring that participants are able to follow along, while understanding the reasoning behind each change that is made in the code.
 
-After this is considered, it's not actually that important to give a step-by-step run down what was taught on the day. We told our participants details such as what HTML element attributes are, and how to make a CSS query elector for an element by class name, amongst other things. But, with each step that we took, our audience reciprocated, and we made sure that no one was left behind.
+After this is considered, it's not actually that important to give a step-by-step run down what was taught on the day. We told our participants details such as what HTML element attributes are, and how to make a CSS query selector for an element by class name, amongst other things. But, with each step that we took, our audience reciprocated, and we made sure that no one was left behind.
 
 ![Mimmitkoodaa Secondary Image](/img/mimmitkooda-1.jpg)
 ## Ego-stroking phrases don't generate value - you do
