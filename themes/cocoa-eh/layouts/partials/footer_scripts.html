@@ -49,7 +49,7 @@ fathom('trackPageview');
       hljs.initHighlighting();
     {{ end }}
     {{ if .Site.Params.progressively }}
-      progressively.init({delay: 30, throttle: 50});
+      progressively.init({delay: 0, throttle: 50});
     {{ end }}
     {{ if .Site.Params.share }}
       SocialShareKit.init({
