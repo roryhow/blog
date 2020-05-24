@@ -1,5 +1,5 @@
 ---
-title: "I Wrote a Brexit Political Bias Classifer and It Sucked - Here's Why."
+title: "I Wrote a Brexit Political Bias Classifer and It Sucked - Here's Why"
 date: 2020-05-24
 tags: [ "LSTM", "GRU", "Brexit", "Political Bias", "Word2Vec"]
 ---
