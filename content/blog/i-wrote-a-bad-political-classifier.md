@@ -11,7 +11,7 @@ I'm usually juggling three newspapers that I read on a daily basis: The Guardian
 
 So, with the referendum vote behind me, I decided to see if I can find a way to split newspapers into pro-leave or pro-remain buckets, where articles could be fed into a model that would then spit out a EU philosophy alignment prediction.
 
-I'll give you a half-spoiler ahead of time though. Things both did _and_ didn't work at the same time. On the surface, I achieved my goal. But as is the case with most things, when you scratch between the surface, it's a little bit more tricky than that.
+I'll give you a half-spoiler ahead of time though: Things both did _and_ didn't work at the same time. On the surface, I achieved my goal. But as is the case with most things, when you scratch beneath the surface, it's a little bit more tricky than that.
 
 # The Problem
 ## The British Media is Fundamentally Biased
@@ -45,7 +45,7 @@ But, one drawback of these kinds of networks is they can get very confused when 
 Here's an example of a kind of gated RNN, called a long short-term memory cell. There's no exam or quiz associated with this blog post so I won't quiz you on it, but they're pretty cool. Maybe I'll go into the maths behind these in another blog post at some point... ☺️ All you need to know is that this and another type of RNN called a Gated Recurrent Unit (GRU) were the primary types of RNN that I used in this study, as they're best known to be able to manage longer sequences of input data.
 
 ## OK... How About Naive Bayes?
-One of the most simplest approach to sentence classification is the Naive Bayes. If we have a sentence X, and a prediction y, we can write the Bayes theorem as follows:
+One of the most simple approaches to sentence classification is the Naive Bayes. If we have a sentence X, and a prediction y, we can write the Bayes theorem as follows:
 ![Bayes Theorem](/img/bayes-theorem.png)
 All we're saying here is the probability of a label y existing, given a sentence X. We can then calculate this using some existing probabilities that we're able to compute intuitively. One underlying assumption with Naive Bayes is that each feature is independent of each other. In this context we cannot say that each word is independent of each other in our sentence; each word influences the surrounding context words. With this in mind, I made the assumption that while Naive Bayes would serve as an interesting base, it probably won't provide results to contend with the far more sophisciated RNN-based approaches.
 
