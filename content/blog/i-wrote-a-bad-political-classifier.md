@@ -7,11 +7,11 @@ tags: [ "LSTM", "GRU", "Brexit", "Political Bias", "Word2Vec"]
 # Backstory
 I recently finished writing my master's thesis at [Aalto University](https://www.aalto.fi/en), which thankfully means I'm now able to graduate 🎉 (Let's not talk about how long it took, though). When I started work on my thesis, I decided to approach a topic that was surrounding me pretty heavily (as a British Citizen) at the time: Brexit.
 
-I'm usually juggling three newspapers that I read on a daily basis: The Guardian, The Financial Times, and The BBC. Intuitively, I could see leading up to the vote that across these three newspapers, some were very explicitly pushing an agenda (I'm looking at you, The Guardian). I wondered, is it possible to be able to determine the political bias of any of these outlets programmatically? It would at least be an interesting topic to look into, and perhaps I would get a nice clickbait title to use at the end of it that I could sell to various newspapers' competitors.
+I'm usually juggling three news sources that I read on a daily basis: The Guardian, The Financial Times, and The BBC. Intuitively, I could see leading up to the vote that across these outlets, some were very explicitly pushing an agenda (I'm looking at you, The Guardian). I wondered, is it possible to be able to determine the political bias of any of these outlets programmatically? It would at least be an interesting topic to look into, and perhaps I would get a nice clickbait title to use at the end of it that I could sell to various newspapers' competitors.
 
 So, with the referendum vote behind me, I decided to see if I can find a way to split newspapers into pro-leave or pro-remain buckets, where articles could be fed into a model that would then spit out a EU philosophy alignment prediction.
 
-I'll give you a half-spoiler ahead of time though: Things both did _and_ didn't work at the same time. On the surface, I achieved my goal. But as is the case with most things, when you scratch beneath the surface, it's a little bit more tricky than that.
+    I'll give you a half-spoiler ahead of time though: Things both did _and_ didn't work at the same time. On the surface, I achieved my goal. But as is the case with most things, when you scratch beneath the surface, it's a little bit more tricky than that.
 
 # The Problem
 ## The British Media is Fundamentally Biased
@@ -42,14 +42,14 @@ In one sentence, an RNN (shown above) is a type of artificial neural network tha
 
 But, one drawback of these kinds of networks is they can get very confused when sentences (our input data) gets long. You can read about it more in the thesis but the problem is called vanishing / exploding gradients. Using gated RNNs allow us to manage these long sentences a bit more effectively.
 ![LSTM Cell](/img/lstm-cell.png)
-Here's an example of a kind of gated RNN, called a long short-term memory cell. There's no exam or quiz associated with this blog post so I won't quiz you on it, but they're pretty cool. Maybe I'll go into the maths behind these in another blog post at some point... ☺️ All you need to know is that this and another type of RNN called a Gated Recurrent Unit (GRU) were the primary types of RNN that I used in this study, as they're best known to be able to manage longer sequences of input data.
+Here's an example of a kind of gated RNN, called a long short-term memory cell. There's no exam or quiz associated with this blog post so I won't quiz you on it, but they're pretty cool (Maybe I'll go into the maths behind these in another blog post at some point). All you need to know is that this and another type of RNN called a Gated Recurrent Unit (GRU) were the main two types of RNN that I used in this study, as they're best known to be able to manage longer sequences of input data.
 
 ## OK... How About Naive Bayes?
 One of the most simple approaches to sentence classification is the Naive Bayes. If we have a sentence X, and a prediction y, we can write the Bayes theorem as follows:
 ![Bayes Theorem](/img/bayes-theorem.png)
 All we're saying here is the probability of a label y existing, given a sentence X. We can then calculate this using some existing probabilities that we're able to compute intuitively. One underlying assumption with Naive Bayes is that each feature is independent of each other. In this context we cannot say that each word is independent of each other in our sentence; each word influences the surrounding context words. With this in mind, I made the assumption that while Naive Bayes would serve as an interesting base, it probably won't provide results to contend with the far more sophisciated RNN-based approaches.
 
-_....ohhhh boy_.
+_....ohhhh boy._
 # Experimentation & Results
 So, practically speaking, I pulled 101415 sentences from 9 different news outlets, and assigned each of them a bias value based on the explicit endorsements provided by that given newspaper. For this study, I used the label 0 to indicated pro-remain, and the label 1 to indicate entirely pro-remain.
 
