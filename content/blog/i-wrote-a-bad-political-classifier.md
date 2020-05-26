@@ -11,7 +11,7 @@ I'm usually juggling three news sources that I read on a daily basis: The Guardi
 
 So, with the referendum vote behind me, I decided to see if I can find a way to split newspapers into pro-leave or pro-remain buckets, where articles could be fed into a model that would then spit out a EU philosophy alignment prediction.
 
-    I'll give you a half-spoiler ahead of time though: Things both did _and_ didn't work at the same time. On the surface, I achieved my goal. But as is the case with most things, when you scratch beneath the surface, it's a little bit more tricky than that.
+I'll give you a half-spoiler ahead of time though: Things both did _and_ didn't work at the same time. On the surface, I achieved my goal. But as is the case with most things, when you scratch beneath the surface, it's a little bit more tricky than that.
 
 # The Problem
 ## The British Media is Fundamentally Biased
