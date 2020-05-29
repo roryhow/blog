@@ -91,3 +91,8 @@ I wanted to be able to create a pro-leave or pro-remain political bias predictor
 As is the case with these things, there's so much more that can be done. natural language processing is an entirely different world now compared to the one when I started work on this thesis, and there's now more cutting edge technologies that should be able to pick up the pitfalls that I encountered here. Problem is, it's going to take more recent data, more time and more funding. But, it would most likely be an incredibly insightful study that hasn't _really_ been done before.
 
 So... time to go for a Ph.D.? Give me some time to think about that and I'll get back to you.
+
+# Quick Links
+As mentioned in the article, you can find the [full master's thesis document here](/assets/roryhow-masters-thesis.pdf).
+
+I also gave a presentation about the thesis. It's probably the most short-form way to find out about the results of my study. You can [find it here](/assets/roryhow-masters-thesis-presentation.pdf).
