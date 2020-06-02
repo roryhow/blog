@@ -51,7 +51,7 @@ All we're saying here is the probability of a label y existing, given a sentence
 
 _....ohhhh boy._
 # Experimentation & Results
-So, practically speaking, I pulled 101415 sentences from 9 different news outlets, and assigned each of them a bias value based on the explicit endorsements provided by that given newspaper. For this study, I used the label 0 to indicated pro-remain, and the label 1 to indicate entirely pro-remain.
+So, practically speaking, I pulled 101415 sentences from 9 different news outlets, and assigned each of them a bias value based on the explicit endorsements provided by that given newspaper. For this study, I used the label 0 to indicated pro-remain, and the label 1 to indicate entirely pro-leave.
 
 Then, I trained a range of RNNs in a variety of different configurations (i.e I tweaked various paramters for each model that was trained). Once I felt that I had trained enough different configurations, I picked the 4 best performing models, and compared these against the more simple Naive Bayes approach.
 
@@ -59,7 +59,7 @@ One thing that's worth mentioning here is that RNNs would take roughly something
 ![Best Model Results](/img/best-model-results.png)
 In the above diagram I'm showing the 4 best performing models (all of which are LSTMs, a type of RNN) with a range of different hyperparameter configurations, compared the Naive Bayes approach. The most important metric to look at in this diagram is the F1 score, which I used as the primary method of gauging a models accuracy. Think of the F1 score as a kind of improvement over a standard accuracy percentage, that takes into account enriched data such as the number of correct positive predictions (i.e correctly predicting pro-leave biases in pro-leave labelled sentences), among other things. Again, if you want to find out about exactly what makes up the F1 score, you can [find it in the thesis.](/assets/roryhow-masters-thesis.pdf)
 
-For reasons I won't go into here, the leftmost model, `lstm-rmsprop-h64-l2` didn't actually learn anything meaningful in the data, it just happened purely by chance that it was able to give quite good predictions over the data that I fed into the network. It's possible to tell this by the large different between precision and recall values for that model.
+For reasons I won't go into here, the leftmost model, `lstm-rmsprop-h64-l2` didn't actually learn anything meaningful in the data, it just happened purely by chance that it was able to give quite good predictions over the data that I fed into the network. It's possible to tell this by the large difference between precision and recall values for that model.
 
 So, if we discount that model, the next best performing model (by F1 score) is... yep, the Naive Bayes. Whilst this was pretty disheartening, I can also see in this graph that the 3 next best performing models weren't far off in terms of F1 score.
 
